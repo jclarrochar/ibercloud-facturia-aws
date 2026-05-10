@@ -1,0 +1,370 @@
+/*
+ * Fichero:     css/estilos.css
+ * Descripcion: Estilos de la aplicacion Gestion de Facturas
+ * Autor:       Juan Carlos Larrocha
+ * Fecha:       2025-26
+ */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eef2f7;
+    margin: 0;
+    padding: 0;
+    color: #222;
+}
+
+/* =====================================================
+   Barra superior con logo
+   ===================================================== */
+.topbar {
+    background-color: #1e3a5f;
+    color: white;
+    padding: 10px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.topbar-izquierda {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.topbar-logo {
+    height: 42px;
+    width: auto;
+    background-color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: block;
+}
+
+.topbar-titulo {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.topbar-autor {
+    font-size: 12px;
+    color: #aac4e0;
+}
+
+/* =====================================================
+   Contenedor blanco central
+   ===================================================== */
+.contenedor {
+    width: 860px;
+    margin: 36px auto;
+    background: white;
+    padding: 32px 36px;
+    border: 1px solid #cdd5e0;
+    border-radius: 6px;
+}
+
+h1 {
+    font-size: 20px;
+    color: #1e3a5f;
+    margin: 0 0 6px 0;
+}
+
+.subtitulo {
+    font-size: 13px;
+    color: #888;
+    margin: 0 0 18px 0;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #dde3ea;
+    margin: 0 0 24px 0;
+}
+
+/* =====================================================
+   Mensajes
+   ===================================================== */
+.ok {
+    background-color: #e8f5e9;
+    border-left: 4px solid #4caf50;
+    color: #1b5e20;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+.error {
+    background-color: #ffebee;
+    border-left: 4px solid #f44336;
+    color: #b71c1c;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+.nota {
+    font-size: 12px;
+    color: #888;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+/* =====================================================
+   Menu del index
+   ===================================================== */
+.menu-tabla {
+    width: 100%;
+    border-spacing: 10px;
+    border-collapse: separate;
+    margin-top: 4px;
+}
+
+.menu-tabla td {
+    width: 33%;
+    background-color: #f4f7fb;
+    border: 1px solid #c8d4e0;
+    border-radius: 5px;
+    padding: 18px 20px;
+    vertical-align: top;
+}
+
+.menu-tabla td:hover {
+    background-color: #e2ecf7;
+    border-color: #1e3a5f;
+}
+
+.menu-tabla td.peligro:hover {
+    background-color: #fff0f0;
+    border-color: #c0392b;
+}
+
+.menu-tabla td.destacado {
+    background-color: #eef6ff;
+    border-color: #93c5fd;
+}
+
+.menu-tabla td.destacado:hover {
+    background-color: #dbeafe;
+    border-color: #1d4ed8;
+}
+
+.menu-tabla a {
+    text-decoration: none;
+    color: #1e3a5f;
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+}
+
+.menu-tabla td.peligro a {
+    color: #7f1d1d;
+}
+
+.menu-tabla td.destacado a {
+    color: #1d4ed8;
+}
+
+.menu-tabla small {
+    display: block;
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+    font-weight: normal;
+}
+
+/* =====================================================
+   Tarjetas resumen listado
+   ===================================================== */
+.resumen {
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.resumen-tarjeta {
+    float: left;
+    width: 22%;
+    margin-right: 2.6%;
+    border-radius: 5px;
+    padding: 14px;
+    text-align: center;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.resumen-tarjeta:last-child {
+    margin-right: 0;
+}
+
+.resumen-tarjeta .numero {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.resumen-tarjeta .etiqueta {
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* =====================================================
+   Tabla de datos
+   ===================================================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+table th {
+    background-color: #1e3a5f;
+    color: white;
+    padding: 10px 12px;
+    text-align: left;
+    font-size: 13px;
+}
+
+table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid #eee;
+}
+
+table tr:hover td {
+    background-color: #f4f7fb;
+}
+
+table tfoot td {
+    font-weight: bold;
+    background-color: #f4f7fb;
+    border-top: 2px solid #cdd5e0;
+    padding: 9px 12px;
+}
+
+td.num {
+    text-align: right;
+}
+
+/* =====================================================
+   Badges
+   ===================================================== */
+.badge {
+    padding: 3px 9px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.badge-pagada    { background: #d4edda; color: #155724; }
+.badge-pendiente { background: #fff3cd; color: #856404; }
+.badge-rechazada { background: #f8d7da; color: #721c24; }
+
+/* =====================================================
+   Seccion antes/despues
+   ===================================================== */
+.seccion {
+    font-size: 12px;
+    color: #888;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 24px 0 8px 0;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #eee;
+}
+
+/* =====================================================
+   Formularios
+   ===================================================== */
+.campo {
+    margin-bottom: 16px;
+}
+
+.campo label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 5px;
+}
+
+.campo input[type="text"],
+.campo input[type="date"],
+.campo input[type="number"],
+.campo input[type="file"],
+.campo select {
+    width: 380px;
+    padding: 8px 10px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.campo input:focus,
+.campo select:focus {
+    outline: none;
+    border-color: #1e3a5f;
+}
+
+.campo small {
+    display: block;
+    font-size: 12px;
+    color: #888;
+    margin-top: 4px;
+}
+
+/* Formulario centrado: aplicar la clase 'form-centrado' al <form>
+   para que los campos queden alineados al centro de la pagina. */
+.form-centrado .campo {
+    text-align: center;
+}
+
+.form-centrado .campo label {
+    text-align: center;
+}
+
+.form-centrado .campo input[type="text"],
+.form-centrado .campo input[type="date"],
+.form-centrado .campo input[type="number"],
+.form-centrado .campo input[type="file"],
+.form-centrado .campo select {
+    margin: 0 auto;
+}
+
+.form-centrado .campo small {
+    text-align: center;
+}
+
+.form-centrado .form-acciones {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* =====================================================
+   Botones
+   ===================================================== */
+.boton {
+    display: inline-block;
+    padding: 8px 18px;
+    background-color: #1e3a5f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 6px;
+    margin-top: 10px;
+}
+
+.boton:hover { background-color: #16304f; }
+
+.boton-verde { background-color: #2e7d32; }
+.boton-verde:hover { background-color: #1b5e20; }
+
+.boton-rojo { background-color: #c0392b; }
+.boton-rojo:hover { background-color: #962d22; }
+
+.boton-gris { background-color: #757575; }
+.boton-gris:hover { background-color: #555; }
