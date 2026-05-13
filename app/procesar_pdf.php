@@ -205,7 +205,17 @@ echo "<pre style='background:#f5f5f5;padding:10px;border:1px solid #ddd;font-siz
 // 4. PARSEO DEL CSV Y VALIDACION
 // =====================================================================
 
-$lineas = explode("\n", $csv_devuelto);
+// Limpiar respuesta: a veces la IA envuelve el CSV en markdown (```csv ... ```)
+$csv_limpio = preg_replace('/^```[a-z]*\s*/m', '', $csv_devuelto);
+$csv_limpio = preg_replace('/```\s*$/m', '', $csv_limpio);
+$csv_limpio = trim($csv_limpio);
+
+// Dividir en lineas y filtrar las vacias
+$lineas = array_filter(array_map('trim', explode("\n", $csv_limpio)), function($l) {
+    return $l !== '';
+});
+$lineas = array_values($lineas);
+
 if (count($lineas) < 2) {
     echo "<p class='error'>La respuesta de la IA no tiene el formato esperado (faltan lineas).</p>";
     echo "<a href='form_subir_pdf.php' class='boton'>Volver al formulario</a>";
@@ -213,8 +223,24 @@ if (count($lineas) < 2) {
     exit;
 }
 
-// La primera linea es la cabecera, la segunda son los datos
-$datos = explode(";", trim($lineas[1]));
+// Buscar la cabecera (linea que contiene "fecha_factura")
+$indice_cabecera = -1;
+foreach ($lineas as $i => $linea) {
+    if (stripos($linea, "fecha_factura") !== false) {
+        $indice_cabecera = $i;
+        break;
+    }
+}
+
+if ($indice_cabecera === -1 || !isset($lineas[$indice_cabecera + 1])) {
+    echo "<p class='error'>No se ha podido localizar la linea de datos en la respuesta de la IA.</p>";
+    echo "<a href='form_subir_pdf.php' class='boton'>Volver al formulario</a>";
+    echo "</div></body></html>";
+    exit;
+}
+
+// La linea de datos es la siguiente a la cabecera
+$datos = explode(";", trim($lineas[$indice_cabecera + 1]));
 if (count($datos) != 5) {
     echo "<p class='error'>La respuesta de la IA no tiene 5 campos (tiene " . count($datos) . ").</p>";
     echo "<a href='form_subir_pdf.php' class='boton'>Volver al formulario</a>";
