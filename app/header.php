@@ -14,5 +14,5 @@
         <img src="media/logo.png" alt="IberCloud Structures" class="topbar-logo">
         <span class="topbar-titulo">Gestion de Facturas</span>
     </div>
-    <span class="topbar-autor">Juan Carlos Larrocha &mdash; IAW UD6 &mdash; 2025-26</span>
+    <span class="topbar-autor">Juan Carlos Larrocha - Jorge Baos&mdash; IberCloud Structures &mdash;</span>
 </div>
